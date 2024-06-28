@@ -1,72 +1,49 @@
-# Gorilla: Large Language Model Connected with Massive APIs [[Project Website](https://shishirpatil.github.io/gorilla/)]
-
-
-<img src="https://github.com/ShishirPatil/gorilla/blob/gh-pages/assets/img/logo.png" width=50% height=50%>
-
-**🚒  GoEx: A Runtime for executing LLM generated actions like code & API calls** GoEx presents “undo” and “damage confinement” abstractions for mitigating the risk of unintended actions taken in LLM-powered systems. [Release blog](https://gorilla.cs.berkeley.edu/blogs/10_gorilla_exec_engine.html) [Paper](https://arxiv.org/abs/2404.06921).
-
-**🎉 Berkeley Function Calling Leaderboard** How do models stack up for function calling? :dart: Releasing the [Berkeley Function Calling Leaderboard](https://gorilla.cs.berkeley.edu/leaderboard). Read more in our [Release Blog](https://gorilla.cs.berkeley.edu/blogs/8_berkeley_function_calling_leaderboard.html). 
-
-**:trophy: Gorilla OpenFunctions v2** Sets new SoTA for open-source LLMs :muscle: On-par with GPT-4 :raised_hands: Supports more languages :ok_hand: [Blog](https://gorilla.cs.berkeley.edu/blogs/7_open_functions_v2.html). 
-
-**:fire: Gorilla OpenFunctions** is a drop-in alternative for function calling! [Release Blog](https://gorilla.cs.berkeley.edu/blogs/4_open_functions.html)
-
-**🟢 Gorilla is Apache 2.0** With Gorilla being fine-tuned on MPT, and Falcon, you can use Gorilla commercially with no obligations! :golf:  
-
-**:rocket: Try Gorilla in 60s** [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1DEBPsccVLF_aUnmD0FwPeHFrtdC0QIUP?usp=sharing) 
-
-:computer: Use [Gorilla in your CLI](https://github.com/gorilla-llm/gorilla-cli) with `pip install gorilla-cli`
-
-**:fax: Checkout our [blogs](https://gorilla.cs.berkeley.edu/blog.html) for all things tools-use/function-calling!** 
-
-**:newspaper_roll: Checkout our paper!** [![arXiv](https://img.shields.io/badge/arXiv-2305.15334-<COLOR>.svg?style=flat-square)](https://arxiv.org/abs/2305.15334)
-
-**:wave: Join our Discord!** [![Discord](https://img.shields.io/discord/1111172801899012102?label=Discord&logo=discord&logoColor=green&style=flat-square)](https://discord.gg/grXXvj9Whz)
-
-
-`Gorilla` enables LLMs to use tools by invoking APIs. Given a natural language query, Gorilla comes up with the semantically- and syntactically- correct API to invoke. With Gorilla, we are the first to demonstrate how to use LLMs to invoke 1,600+ (and growing) API calls accurately while reducing hallucination. We also release APIBench, the largest collection of APIs, curated and easy to be trained on! Join us, as we try to expand the largest API store and teach LLMs how to write them! Hop on our Discord, or open a PR, or email us if you would like to have your API incorporated as well.
-
-## News
-- ⏰: [04/01] Introducing cost and latency metrics into [Berkeley function calling leaderboard](https://gorilla.cs.berkeley.edu/leaderboard)!
-- :rocket: [03/15] RAFT: Adapting Language Model to Domain Specific RAG is live! [[MSFT-Meta blog](https://techcommunity.microsoft.com/t5/ai-ai-platform-blog/bg-p/AIPlatformBlog)] [[Berkeley Blog](https://gorilla.cs.berkeley.edu/blogs/9_raft.html)]
-- :trophy: [02/26] [Berkeley Function Calling Leaderboard](https://gorilla.cs.berkeley.edu/leaderboard) is live!
-- :dart: [02/25] [OpenFunctions v2](https://gorilla.cs.berkeley.edu/blogs/7_open_functions_v2.html) sets new SoTA for open-source LLMs!
-- :fire: [11/16] Excited to release [Gorilla OpenFunctions](https://gorilla.cs.berkeley.edu/blogs/4_open_functions.html)
-- 💻 [06/29] Released [gorilla-cli](https://github.com/gorilla-llm/gorilla-cli), LLMs for your CLI!
-- 🟢 [06/06] Released Commercially usable, Apache 2.0 licensed Gorilla models
-- :rocket: [05/30] Provided the [CLI interface](inference/README.md) to chat with Gorilla!
-- :rocket: [05/28] Released Torch Hub and TensorFlow Hub Models!
-- :rocket: [05/27] Released the first Gorilla model! [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1DEBPsccVLF_aUnmD0FwPeHFrtdC0QIUP?usp=sharing) or [:hugs:](https://huggingface.co/gorilla-llm/gorilla-7b-hf-delta-v0)!
-- :fire: [05/27] We released the APIZoo contribution guide for community API contributions!
-- :fire: [05/25] We release the APIBench dataset and the evaluation code of Gorilla!
-
-## Gorilla Gradio
-**Try Gorilla LLM models in [HF Spaces](https://huggingface.co/spaces/gorilla-llm/gorilla-demo/) or [![Gradio Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1ktnVWPJOgqTC9hLW8lJPVZszuIddMy7y?usp=sharing)**
-![gorilla_webUI_2](https://github.com/TanmayDoesAI/gorilla/assets/85993243/f30645bf-6798-4bd2-ac6e-6943840ae095)
-
-
-## Get Started 
-
-Inference: Run Gorilla locally [`inference/README.md`](inference/README.md)
-
-Evaluation: We have included prompts and responses for the APIBench with and without retrievers along with the Abstract Syntax Tree (AST) matching evaluation script at [evaluation](https://github.com/ShishirPatil/gorilla/tree/main/eval).
-
-## Repository Organization
-
-Our repository organization is shown below. 
-
-  - The `berkeley-function-call-leaderboard` folder contains scripts for evaluating function-calling ability of models.
-  - The `data` folder contains all the evaluation APIs `(APIBench)` and the community contributed APIs.
-  - The `eval` folder contains all our evaluation code as well as the Gorilla outputs.
-  - The `inference` folder contains all the inference code for running Gorilla locally.
-  - The `openfunctions` folder contains the inference code for the OpenFunctions model(s).
-
-For our dataset collections, all the 1640 API documentation is in `data/api`. We also include the `APIBench` dataset created by self-instruct in `data/apibench`. For evaluation, we convert this into a LLM-friendly chat format, and the questions are in `eval/eval-data/questions`, and the corresponding responses are in `eval/eval-data/responses`.  We have also included the evaluation scripts are in `eval/eval-scripts`. This would be entirely sufficient to train Gorilla yourself, and reproduce our results. Please see [evaluation](https://github.com/ShishirPatil/gorilla/tree/main/eval) for the details on how to use our evaluation pipeline.
-
-Additionally, we have released all the model weights. `gorilla-7b-hf-v0` lets you invoke over 925 Hugging Face APIs. Similarly, `gorilla-7b-tf-v0` and `gorilla-7b-th-v0` have 626 (exhaustive) Tensorflow v2, and 94 (exhaustive) Torch Hub APIs. `gorilla-mpt-7b-hf-v0` and `gorilla-falcon-7b-hf-v0` are Apache 2.0 licensed models (commercially usable) fine-tuned on MPT-7B and Falcon-7B respectively. We will release a model with all three combined with generic chat capability and community contributed APIs as soon as we can scale our serving infrastructure. You can run Gorilla locally from instructions in the `inference/` sub-directory, or we also provide a hosted Gorilla chat completion API (see Colab)! If you have any suggestions, or if you run into any issues please feel free to reach out to us either through Discord or email or raise a Github issue.
-
-```
-gorilla
+<div class="Box-sc-g0xbh4-0 bJMeLZ js-snippet-clipboard-copy-unpositioned" data-hpc="true"><article class="markdown-body entry-content container-lg" itemprop="text"><div class="markdown-heading" dir="auto"><h1 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Gorilla：连接海量 API 的大型语言模型 [</font></font><a href="https://shishirpatil.github.io/gorilla/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">项目网站</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">]</font></font></h1><a id="user-content-gorilla-large-language-model-connected-with-massive-apis-project-website" class="anchor" aria-label="永久链接：Gorilla：与海量 API 相连的大型语言模型 [项目网站]" href="#gorilla-large-language-model-connected-with-massive-apis-project-website"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer" href="https://github.com/ShishirPatil/gorilla/blob/gh-pages/assets/img/logo.png"><img src="https://github.com/ShishirPatil/gorilla/raw/gh-pages/assets/img/logo.png" width="50%" height="50%" style="max-width: 100%;"></a></p>
+<p dir="auto"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">🚒 GoEx：用于执行 LLM 生成的操作（如代码和 API 调用）的运行时</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">GoEx 提出了“撤消”和“损害限制”抽象，以减轻 LLM 驱动系统中采取意外行动的风险。</font></font><a href="https://gorilla.cs.berkeley.edu/blogs/10_gorilla_exec_engine.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">发布博客</font></font></a> <a href="https://arxiv.org/abs/2404.06921" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文章</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></p>
+<p dir="auto"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">🎉 Berkeley 函数调用排行榜</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">模型在函数调用方面的表现如何？ 🎯 发布</font></font><a href="https://gorilla.cs.berkeley.edu/leaderboard" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Berkeley 函数调用排行榜</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。 更多信息请阅读我们的</font></font><a href="https://gorilla.cs.berkeley.edu/blogs/8_berkeley_function_calling_leaderboard.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">发布博客</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></p>
+<p dir="auto"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">🏆 Gorilla OpenFunctions v2</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">为开源 LLM 设置了新的 SoTA 💪 与 GPT-4 相当 🙌 支持更多语言 👌</font></font><a href="https://gorilla.cs.berkeley.edu/blogs/7_open_functions_v2.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">博客</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></p>
+<p dir="auto"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">🔥 Gorilla OpenFunctions</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是函数调用的替代方案！</font></font><a href="https://gorilla.cs.berkeley.edu/blogs/4_open_functions.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">发布博客</font></font></a></p>
+<p dir="auto"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">🟢 Gorilla 是 Apache 2.0，</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Gorilla 在 MPT 和 Falcon 上进行了微调，您可以在商业上使用 Gorilla，没有任何义务！⛳</font></font></p>
+<p dir="auto"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">🚀 尝试 60 年代的 Gorilla</font></font></strong> <a href="https://colab.research.google.com/drive/1DEBPsccVLF_aUnmD0FwPeHFrtdC0QIUP?usp=sharing" rel="nofollow"><img src="https://camo.githubusercontent.com/f5e0d0538a9c2972b5d413e0ace04cecd8efd828d133133933dfffec282a4e1b/68747470733a2f2f636f6c61622e72657365617263682e676f6f676c652e636f6d2f6173736574732f636f6c61622d62616467652e737667" alt="Colab" data-canonical-src="https://colab.research.google.com/assets/colab-badge.svg" style="max-width: 100%;"></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">💻在你的 CLI 中</font><font style="vertical-align: inherit;">使用</font></font><a href="https://github.com/gorilla-llm/gorilla-cli"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Gorilla</font></font></a><font style="vertical-align: inherit;"></font><code>pip install gorilla-cli</code></p>
+<p dir="auto"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">📠 查看我们的</font></font><a href="https://gorilla.cs.berkeley.edu/blog.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">博客，</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">了解有关工具使用/函数调用的所有信息！</font></font></strong></p>
+<p dir="auto"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">🗞️ 查看我们的论文！</font></font></strong> <a href="https://arxiv.org/abs/2305.15334" rel="nofollow"><img src="https://camo.githubusercontent.com/9cba08906a3a969e269d035e44cf7aeaf87eb8611402437ac4c9753e254cd83b/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f61725869762d323330352e31353333342d253343434f4c4f522533452e7376673f7374796c653d666c61742d737175617265" alt="论文集" data-canonical-src="https://img.shields.io/badge/arXiv-2305.15334-%3CCOLOR%3E.svg?style=flat-square" style="max-width: 100%;"></a></p>
+<p dir="auto"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">👋 加入我们的 Discord！</font></font></strong> <a href="https://discord.gg/grXXvj9Whz" rel="nofollow"><img src="https://camo.githubusercontent.com/a4eba0127d43583e401af92e5e941f83ecf482ddcdd44e6b94d801200ccf0fb8/68747470733a2f2f696d672e736869656c64732e696f2f646973636f72642f313131313137323830313839393031323130323f6c6162656c3d446973636f7264266c6f676f3d646973636f7264266c6f676f436f6c6f723d677265656e267374796c653d666c61742d737175617265" alt="不和谐" data-canonical-src="https://img.shields.io/discord/1111172801899012102?label=Discord&amp;logo=discord&amp;logoColor=green&amp;style=flat-square" style="max-width: 100%;"></a></p>
+<p dir="auto"><code>Gorilla</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使 LLM 能够通过调用 API 来使用工具。给定一个自然语言查询，Gorilla 会提出语义和语法正确的 API 来调用。借助 Gorilla，我们首次展示了如何使用 LLM 准确调用 1,600 多个（并且还在不断增加）API 调用，同时减少幻觉。我们还发布了 APIBench，这是最大的 API 集合，经过精心挑选且易于训练！加入我们，我们将尝试扩展最大的 API 商店并教 LLM 如何编写它们！如果您也希望将您的 API 纳入其中，请加入我们的 Discord，或打开 PR，或给我们发送电子邮件。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">消息</font></font></h2><a id="user-content-news" class="anchor" aria-label="固定链接：新闻" href="#news"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">⏰：[04/01] 在</font></font><a href="https://gorilla.cs.berkeley.edu/leaderboard" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Berkeley 函数调用排行榜</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">中引入成本和延迟指标！</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">🚀 [03/15] RAFT：将语言模型适配到特定领域的 RAG 现已上线！[ </font></font><a href="https://techcommunity.microsoft.com/t5/ai-ai-platform-blog/bg-p/AIPlatformBlog" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">MSFT-Meta 博客</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">] [</font></font><a href="https://gorilla.cs.berkeley.edu/blogs/9_raft.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">伯克利博客</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">]</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">🏆 [02/26]</font></font><a href="https://gorilla.cs.berkeley.edu/leaderboard" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">伯克利函数调用排行榜</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">现已上线！</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">🎯 [02/25] </font></font><a href="https://gorilla.cs.berkeley.edu/blogs/7_open_functions_v2.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">OpenFunctions v2</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">为开源 LLM 设置了新的 SoTA！</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">🔥 [11/16] 很高兴发布</font></font><a href="https://gorilla.cs.berkeley.edu/blogs/4_open_functions.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Gorilla OpenFunctions</font></font></a></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">💻 [06/29] 发布了</font></font><a href="https://github.com/gorilla-llm/gorilla-cli"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">gorilla-cli</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，适用于您的 CLI 的 LLM！</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">🟢 [06/06] 发布可商业使用的 Apache 2.0 许可的 Gorilla 模型</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">🚀 [05/30] 提供了</font><font style="vertical-align: inherit;">与 Gorilla 聊天的</font></font><a href="/ShishirPatil/gorilla/blob/main/inference/README.md"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">CLI 界面！</font></font></a><font style="vertical-align: inherit;"></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">🚀 [05/28] 发布 Torch Hub 和 TensorFlow Hub 模型！</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">🚀 [05/27] 发布第一款 Gorilla 模型！</font></font><a href="https://colab.research.google.com/drive/1DEBPsccVLF_aUnmD0FwPeHFrtdC0QIUP?usp=sharing" rel="nofollow"><img src="https://camo.githubusercontent.com/f5e0d0538a9c2972b5d413e0ace04cecd8efd828d133133933dfffec282a4e1b/68747470733a2f2f636f6c61622e72657365617263682e676f6f676c652e636f6d2f6173736574732f636f6c61622d62616467652e737667" alt="Colab" data-canonical-src="https://colab.research.google.com/assets/colab-badge.svg" style="max-width: 100%;"></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">或者</font></font><a href="https://huggingface.co/gorilla-llm/gorilla-7b-hf-delta-v0" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">🤗</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">！</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">🔥 [05/27] 我们发布了 APIZoo 贡献指南，供社区 API 贡献！</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">🔥 [05/25] 我们发布APIBench数据集和Gorilla的评估代码！</font></font></li>
+</ul>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">大猩猩格拉迪奥</font></font></h2><a id="user-content-gorilla-gradio" class="anchor" aria-label="永久链接：Gorilla Gradio" href="#gorilla-gradio"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><strong><font style="vertical-align: inherit;"></font><a href="https://huggingface.co/spaces/gorilla-llm/gorilla-demo/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在HF Spaces</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">中尝试 Gorilla LLM 模型</font><font style="vertical-align: inherit;">或</font></font><a href="https://colab.research.google.com/drive/1ktnVWPJOgqTC9hLW8lJPVZszuIddMy7y?usp=sharing" rel="nofollow"><img src="https://camo.githubusercontent.com/f5e0d0538a9c2972b5d413e0ace04cecd8efd828d133133933dfffec282a4e1b/68747470733a2f2f636f6c61622e72657365617263682e676f6f676c652e636f6d2f6173736574732f636f6c61622d62616467652e737667" alt="Gradio Colab" data-canonical-src="https://colab.research.google.com/assets/colab-badge.svg" style="max-width: 100%;"></a></strong>
+<a target="_blank" rel="noopener noreferrer" href="https://private-user-images.githubusercontent.com/85993243/262087074-f30645bf-6798-4bd2-ac6e-6943840ae095.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTk1NjQzNzQsIm5iZiI6MTcxOTU2NDA3NCwicGF0aCI6Ii84NTk5MzI0My8yNjIwODcwNzQtZjMwNjQ1YmYtNjc5OC00YmQyLWFjNmUtNjk0Mzg0MGFlMDk1LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA2MjglMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwNjI4VDA4NDExNFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTNmYjRlNTlkYmZiM2MzMzFmZTZiM2EyNmRmMGVhZDAzNzJmODBiOGZjNjk3OTRhNTVmMDBlOWQ2NDVhZTkzZWUmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.gq5Rs5jpHNvO7s5_tyJUQYrsclda1TVTGzy5faWqPUE"><img src="https://private-user-images.githubusercontent.com/85993243/262087074-f30645bf-6798-4bd2-ac6e-6943840ae095.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTk1NjQzNzQsIm5iZiI6MTcxOTU2NDA3NCwicGF0aCI6Ii84NTk5MzI0My8yNjIwODcwNzQtZjMwNjQ1YmYtNjc5OC00YmQyLWFjNmUtNjk0Mzg0MGFlMDk1LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA2MjglMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwNjI4VDA4NDExNFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTNmYjRlNTlkYmZiM2MzMzFmZTZiM2EyNmRmMGVhZDAzNzJmODBiOGZjNjk3OTRhNTVmMDBlOWQ2NDVhZTkzZWUmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.gq5Rs5jpHNvO7s5_tyJUQYrsclda1TVTGzy5faWqPUE" alt="gorilla_webUI_2" style="max-width: 100%;"></a></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">立即开始</font></font></h2><a id="user-content-get-started" class="anchor" aria-label="永久链接：开始" href="#get-started"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">推论：在本地运行 Gorilla</font></font><a href="/ShishirPatil/gorilla/blob/main/inference/README.md"><code>inference/README.md</code></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"></font><a href="https://github.com/ShishirPatil/gorilla/tree/main/eval"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">评估：我们在评估</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">中包含了带有和不带有检索器的 APIBench 的提示和响应以及与抽象语法树 (AST) 匹配的评估脚本</font><font style="vertical-align: inherit;">。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">存储库组织</font></font></h2><a id="user-content-repository-organization" class="anchor" aria-label="永久链接：存储库组织" href="#repository-organization"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们的存储库组织如下所示。</font></font></p>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">该</font></font><code>berkeley-function-call-leaderboard</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文件夹包含用于评估模型函数调用能力的脚本。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">该</font></font><code>data</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文件夹包含所有评估 API</font></font><code>(APIBench)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和社区贡献的 API。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">该</font></font><code>eval</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文件夹包含我们所有的评估代码以及 Gorilla 输出。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">该</font></font><code>inference</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文件夹包含在本地运行 Gorilla 的所有推理代码。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">该</font></font><code>openfunctions</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文件夹包含 OpenFunctions 模型的推理代码。</font></font></li>
+</ul>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">对于我们的数据集集合，所有 1640 个 API 文档都在 中</font></font><code>data/api</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。我们还在</font></font><code>APIBench</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">中包含了 self-instruct 创建的数据集</font></font><code>data/apibench</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。为了进行评估，我们将其转换为 LLM 友好的聊天格式，问题在 中</font></font><code>eval/eval-data/questions</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，相应的响应在 中</font></font><code>eval/eval-data/responses</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。我们还在 中包含了评估脚本</font></font><code>eval/eval-scripts</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。这完全足以让您自己训练 Gorilla 并重现我们的结果。</font><font style="vertical-align: inherit;">有关如何使用我们的评估流程的详细信息，请参阅</font></font><a href="https://github.com/ShishirPatil/gorilla/tree/main/eval"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">评估。</font></font></a><font style="vertical-align: inherit;"></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">此外，我们已经发布了所有模型权重。</font></font><code>gorilla-7b-hf-v0</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">允许您调用超过 925 个 Hugging Face API。同样，</font></font><code>gorilla-7b-tf-v0</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><code>gorilla-7b-th-v0</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">有 626 个（详尽的）Tensorflow v2 和 94 个（详尽的）Torch Hub API。</font></font><code>gorilla-mpt-7b-hf-v0</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><code>gorilla-falcon-7b-hf-v0</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是 Apache 2.0 许可模型（可用于商业用途），分别在 MPT-7B 和 Falcon-7B 上进行了微调。一旦我们能够扩展我们的服务基础设施，我们将发布一个结合了这三种模型以及通用聊天功能和社区贡献 API 的模型。您可以根据子目录中的说明在本地运行 Gorilla </font></font><code>inference/</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，或者我们还提供托管的 Gorilla 聊天完成 API（参见 Colab）！如果您有任何建议，或者遇到任何问题，请随时通过 Discord 或电子邮件与我们联系，或者提出 Github 问题。</font></font></p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>gorilla
 |-- berkeley-function-call-leaderboard (data and scripts to eval model's function-calling ability)
 ├── data
 │   ├── api (TF/HF/TH APIs used in generating apibench)
@@ -100,63 +77,105 @@ gorilla
 |   ├── utils (parsing script for openfunctions-v2)
 |   ├── inference_* (openfunctions-v2 hosted/local inference code)
 
-```
-
-## Contributing Your API
-We aim to build an open-source, one-stop-shop for all APIs, LLMs can interact with! Any suggestions and contributions are welcome! Please see the details on [how to contribute](https://github.com/ShishirPatil/gorilla/tree/main/data/README.md). THIS WILL ALWAYS REMAIN OPEN SOURCE.
-
-
-## FAQ(s)
-
-1. I would like to use Gorilla commercially. Is there going to be a Apache 2.0 licensed version?
-
-Yes! We now have models that you can use commercially without any obligations.
-
-
-2. Can we use Gorilla with other tools like Langchain etc?
-
-Absolutely! You've highlighted a great aspect of our tools. Gorilla is  an  end-to-end model, specifically tailored to serve correct API calls (tools) without requiring any additional coding. It's designed to work as part of a wider ecosystem and can be flexibly integrated within agentic frameworks and other tools.
-
-Langchain, is a versatile developer tool. Its "agents" can efficiently swap in any LLM, Gorilla included, making it a highly adaptable solution for various needs.
-
-The beauty of these tools truly shines when they collaborate, complementing each other's strengths and capabilities to create an even more powerful and comprehensive solution. This is where your contribution can make a difference. We enthusiastically welcome any inputs to further refine and enhance these tools. 
-
-Check out our blog on [How to Use Gorilla: A Step-by-Step Walkthrough](https://gorilla.cs.berkeley.edu/blogs/5_how_to_gorilla.html) to see all the different ways you can integrate Gorilla in your projects.
-
-
-
-## Project Roadmap
-
-In the immediate future, we plan to release the following:
-
-- [ ] BFCL metrics to evaluate contamination 
-- [ ] BFCL systems metrics including cost and latency
-- [ ] BFCL update with "live" data and user-votes
-- [ ] Openfunctions-v3 model to support more languages and multi-turn capability 
-- [x] Berkeley Function Calling leaderboard (BFCL) for evaluating tool-calling/function-calling models [Feb 26, 2024]
-- [x] Openfunctions-v2 with more languages (Java, JS, Python), relevance detection [Feb 26, 2024]
-- [x] API Zoo Index for easy access to all APIs [Feb 16, 2024]
-- [x] Openfunctions-v1, Apache 2.0, with parallel and multiple function calling [Nov 16, 2023]
-- [x] Openfunctions-v0, Apache 2.0 function calling model [Nov 16, 2023]
-- [X] Release a commercially usable, Apache 2.0 licensed Gorilla model [Jun 5, 2023] 
-- [X] Release weights for all APIs from APIBench [May 28, 2023]
-- [X] Run Gorilla LLM locally [May 28, 2023]
-- [X] Release weights for HF model APIs [May 27, 2023]
-- [X] Hosted Gorilla LLM chat for HF model APIs [May 27, 2023]
-- [X] Opening up the APIZoo for contributions from community
-- [X] Dataset and Eval Code
-
-Propose a new task you would like to work on :star_struck:
-
-## Citation
-
-If you use Gorilla or APIBench, please cite our paper:
-
-```text
-@article{patil2023gorilla,
+</code></pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="gorilla
+|-- berkeley-function-call-leaderboard (data and scripts to eval model's function-calling ability)
+├── data
+│   ├── api (TF/HF/TH APIs used in generating apibench)
+│   │   ├── {api_name}_api.jsonl
+│   ├── apibench (Evaluating LLM models) v-1.0
+│   │   ├── {api_name}_train.jsonl, {api_name}_eval.jsonl
+|   |── apizoo (Contributed by the community - evolving)
+│   |   ├── username1.json
+│   │   ├── username2.json
+│   │   ├── ...
+├── eval
+│   ├── README.md
+│   ├── get_llm_responses.py
+│   ├── eval-scripts
+│   │   ├── ast_eval_{api_name}.py
+│   ├── eval-data
+│   │   ├── questions
+│   │   │   ├── API name
+│   │   │   │   ├── questions_{api_name}_{eval_metric}.jsonl
+│   │   ├── responses
+│   │   │   ├── API name
+│   │   │   │   ├── responses_{api_name}_Gorilla_FT_{eval_metric}.jsonl
+│   │   │   │   ├── responses_{api_name}_Gorilla_RT_{eval_metric}.jsonl
+├── inference
+│   ├── README.md
+│   ├── serve
+│   │   ├── gorilla_cli.py
+│   │   ├── conv_template.py
+├── openfunctions
+|   ├── openfunctions-v1 (data and scripts for openfunctions-v0 and v1)
+|   ├── utils (parsing script for openfunctions-v2)
+|   ├── inference_* (openfunctions-v2 hosted/local inference code)
+" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">贡献你的 API</font></font></h2><a id="user-content-contributing-your-api" class="anchor" aria-label="永久链接：贡献你的 API" href="#contributing-your-api"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们的目标是为所有 LLM 可以交互的 API 构建一个开源的一站式商店！欢迎任何建议和贡献！请参阅有关</font></font><a href="https://github.com/ShishirPatil/gorilla/tree/main/data/README.md"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如何贡献的</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">详细信息。这将永远保持开源。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">常见问题</font></font></h2><a id="user-content-faqs" class="anchor" aria-label="永久链接：常见问题解答" href="#faqs"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ol dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我想将 Gorilla 用于商业用途。是否会有 Apache 2.0 许可版本？</font></font></li>
+</ol>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是的！我们现在有可供您商业使用的模型，无需承担任何义务。</font></font></p>
+<ol start="2" dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们可以把 Gorilla 与其他工具（例如 Langchain 等）一起使用吗？</font></font></li>
+</ol>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">绝对正确！您突出了我们工具的一大优点。Gorilla 是一种端到端模型，专门定制用于提供正确的 API 调用（工具），而无需任何额外编码。它旨在作为更广泛生态系统的一部分工作，并且可以灵活地集成到代理框架和其他工具中。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Langchain 是一款多功能的开发工具。其“代理”可以高效地切换任何 LLM，包括 Gorilla，使其成为一款可满足各种需求的高度适应性解决方案。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">这些工具的魅力在于它们相互协作，相互补充彼此的优势和能力，从而创造出更加强大和全面的解决方案。这就是您的贡献可以发挥作用的地方。我们热忱欢迎任何进一步完善和增强这些工具的意见。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">请查看我们的博客《</font></font><a href="https://gorilla.cs.berkeley.edu/blogs/5_how_to_gorilla.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如何使用 Gorilla：分步演练》</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">来了解将 Gorilla 集成到您的项目中的所有不同方法。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">项目路线图</font></font></h2><a id="user-content-project-roadmap" class="anchor" aria-label="永久链接：项目路线图" href="#project-roadmap"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在不久的将来，我们计划发布以下内容：</font></font></p>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">BFCL 指标评估污染</font></font></li>
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">BFCL 系统指标包括成本和延迟</font></font></li>
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">BFCL 使用“实时”数据和用户投票进行更新</font></font></li>
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Openfunctions-v3 模型支持更多语言和多轮能力</font></font></li>
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox" checked=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用于评估工具调用/函数调用模型的 Berkeley 函数调用排行榜 (BFCL) [2024 年 2 月 26 日]</font></font></li>
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox" checked=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Openfunctions-v2 支持更多语言（Java、JS、Python）、相关性检测 [2024 年 2 月 26 日]</font></font></li>
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox" checked=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">API Zoo 索引可轻松访问所有 API [2024 年 2 月 16 日]</font></font></li>
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox" checked=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Openfunctions-v1，Apache 2.0，具有并行和多函数调用功能 [2023 年 11 月 16 日]</font></font></li>
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox" checked=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Openfunctions-v0，Apache 2.0 函数调用模型 [2023 年 11 月 16 日]</font></font></li>
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox" checked=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">发布可商业使用的 Apache 2.0 许可的 Gorilla 模型 [2023 年 6 月 5 日]</font></font></li>
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox" checked=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">从 APIBench 发布所有 API 的权重 [2023 年 5 月 28 日]</font></font></li>
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox" checked=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在本地运行 Gorilla LLM [2023 年 5 月 28 日]</font></font></li>
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox" checked=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">发布 HF 模型 API 的权重 [2023 年 5 月 27 日]</font></font></li>
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox" checked=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">托管 HF 模型 API 的 Gorilla LLM 聊天 [2023 年 5 月 27 日]</font></font></li>
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox" checked=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">开放 APIZoo 以接受社区贡献</font></font></li>
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox" checked=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">数据集和评估代码</font></font></li>
+</ul>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">提出一个你想做的新任务🤩</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">引用</font></font></h2><a id="user-content-citation" class="anchor" aria-label="永久链接：引用" href="#citation"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果您使用 Gorilla 或 APIBench，请引用我们的论文：</font></font></p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre lang="text" class="notranslate"><code>@article{patil2023gorilla,
   title={Gorilla: Large Language Model Connected with Massive APIs},
   author={Shishir G. Patil and Tianjun Zhang and Xin Wang and Joseph E. Gonzalez},
   year={2023},
   journal={arXiv preprint arXiv:2305.15334},
 } 
-```
+</code></pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="@article{patil2023gorilla,
+  title={Gorilla: Large Language Model Connected with Massive APIs},
+  author={Shishir G. Patil and Tianjun Zhang and Xin Wang and Joseph E. Gonzalez},
+  year={2023},
+  journal={arXiv preprint arXiv:2305.15334},
+} " tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+</article></div>
